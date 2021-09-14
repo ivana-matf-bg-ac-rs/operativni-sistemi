@@ -1,0 +1,85 @@
+1. Napisati program koji u fajlu, cija putanja je data kao prvi argument 
+komandne linije, treba svako pojavljivanje malog slova na pocetku reci da 
+zameni istim tim velikim slovom. Uzeti da su reci razdvojene belinom. Za 
+I/O operacije koristiti memorijsko mapiranje.
+[memorijsko mapiranje]
+
+2. Napisati program koji je organizovan na sledeci nacin: Prvi proces u 
+petlji ucitava sa standardnog ulaza komandu "p" ili "q". 
+- Kada ucita komandu "p" treba da napravi novi proces, tako da dece 
+procesa ne bude vise od deset. Ukoliko se i nakon desetog procesa ucita 
+komanda "p", proces treba da ispise poruku "kreiran je maksimalan broj 
+procesa", i da nastavi sa radom, bez kreiranja novog procesa. 
+- Kada ucita komandu "q" treba da obavesti svoju decu procese da ce 
+zavrsiti sa radom, da izadje iz petlje i da zavrsi sa radom. 
+- Ukoliko ucita neke druge karaktere treba da ispise poruku "nepoznata 
+komanda" i da nastavi sa radom. Deca procesi, po kreiranju treba svom 
+roditeljskom procesu da posalju poruku "Kreiran je proces PID", gde kao 
+PID treba da navedu svoj ID, a zatim na svakih pet sekundi da svom 
+roditeljskom procesu posalju poruku "izvestaj iz procesa PID". Iz petlje 
+treba da izadju sve dok ne dobiju obavestenje od svog roditeljskog 
+procesa da treba da zavrse sa radom. Roditeljski proces treba svaku 
+poruku koju dobije od svoje dece procesa da ispisuje na svoj standardni 
+izlaz u redosledu u kome prihvata te poruke.
+Predlog: Za I/O operacije korisititi multipleksiranje. Za obavestavanje 
+dece procesa kada treba prekinuti sa radom koristiti signale.
+[procesi, select, signali, pipe, stdio]
+
+3. Neka je dat fajl "tacke.txt" koji se sastoji od linija oblika "naziv x y". 
+Napisati program koji izracunava i ispisuje na standardni izlaz rastojanja 
+tacaka iz fajla od tacke cije su koordinate date kao argumenti komandne 
+linije. Ukoliko je kao argument naveden i naziv tacke, fajl treba dopuniti 
+novom tackom, ukoliko vec ne postoji. Ukoliko tacka postoji, program treba 
+da zavrsi sa radom. Program treba zakljucati odgovarajucim kljucem pri 
+citanju i pisanju.
+Napisati zatim program koji sa standardnog ulaza ucitava koordinate x i y, 
+pravi novi proces koji treba da izvrsi prethodni program za izracunavanje 
+rastojanja, a zatim da izdvoji najkrace i najduze rastojanje i da ga 
+ispise na standardni izlaz. 
+[record locking, procesi, exec, pipe, dup, IO]
+
+4. Neka je dat fajl "tekst.txt" koji se sastoji od reci u formatu "rec/O", 
+gde je "O" oznaka tipa reci koja moze biti iz skupa N, V, A, P, R, S, C, 
+M, Q, I, Y i X. Reci su razdvojene belinama.
+
+a) Napisati program koji kao prvi argument dobija oznaku, i na standardni 
+izlaz ispisuje sve reci koje imaju tu oznaku sortirano leksikografski 
+rastuce. Za I/O operacije koristiti memorijsko mapiranje. Za sortiranje
+koristiti ugradjenu funkciju qsort.
+[memorijsko mapiranje, qsort]
+
+b) Napisati program koji sa standardnog ulaza ucitava niz oznaka, 
+za svaku oznaku koristi program pod a) da dobije reci koje imaju tu oznaku, 
+a zatim ispisuje broj pojavljivanja takvih reci.
+[procesi, exec, pipe, dup, IO]
+
+c) Neka je dat fajl "rezultati.txt" koji se sastoji od blokova od po pet 
+bajtova, takvih da se u prvom bajtu nalazi oznaka, a u preostala cetiri 
+bajta ceo broj (integer tip) koji predstavlja broj pojavljivanja date oznake.
+Oznake su u gornjem redosledu.
+
+Dopuniti program pod b) tako da pri svakom pokretanju azurira fajl 
+"rezultati.txt", odgovarajucim rezultatima. Za implementaciju koristiti 
+funkciju lseek. Pri svakom upisu u fajl zakljucati odgovarajuci blok 
+metodom record locking-a i otkljucati ga po zavrsenom upisu.
+[record locking, lseek, IO]
+
+5. Napisati program koji ce generisati pet novih procesa. Procesi treba da 
+simuliraju izracunavanje tako sto ce na svakih x sekundi povecati 
+promenljivu "rezultat" za jedan. X treba da bude za prvi proces 0.1, za drugi 
+0.2, za treci 1, za cetvrti 5 i za peti 13.
+U svakom trenutku (kada ucita redni broj sa standardnog ulaza) roditeljski 
+proces moze zatraziti (slanjem signala) izvrstaj od svog procesa sa tim 
+rednim brojem. Dete proces tada treba da mu posalje svoj trenutni rezultat. 
+Roditeljski proces taj rezultat treba da ispisuje na standardni izlaz. 
+[procesi, select, signali, pipe, dup, IO]
+
+6. Napisati program koji racuna frekvencije slova u fajlu cija je 
+putanja data prvim argumentom komandne linije. Program treba da po 
+izvrsenom prebrojavanju ispisuje po jednu liniju za svako slovo u 
+formatu, slovo, dvotacka, procenat pojavljivanja. Mala i velika 
+slova treba tretirati kao jednu klasu, dok sve ostale karaktere 
+koji nisu slova treba ignorisati i ne uracunavati u statistiku. Sve 
+greske u sistemskim pozivima treba obraditi. Citanje sadrzaja fajla 
+implementirati metodom memorijskog mapiranja.
+[memorijsko mapiranje]

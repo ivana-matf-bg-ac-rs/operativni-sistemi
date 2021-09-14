@@ -1,0 +1,102 @@
+1. Napisati program koji
+- izlistava imena svih korisnika i njihove user ID-ove
+- za uneti ID ispisuje ime korisnika. Ako je unet 
+nepostojeci ID ispisuje poruku.
+- za uneto ime korisnika ispisuje naziv njegove inicijalne
+grupe, kao i nazive svih dodatnih grupa kojih je clan.
+
+2. Napisati program koji za svaku korisnicku 
+grupu ispisuje korisnicka imena njegovih clanova 
+i pored svakog imena i inicijalnu grupu datog 
+korisnika.
+
+3. Napisati program koji za svakog korisnika 
+ispisuje imena svih grupa kojima pripada.
+
+4. Ispitati i demonstrirati koriscenje funkcija
+- time, ctime, gmtime, localtime, mktime,    
+asctime i strftime. Uporediti te funkcije.
+
+5. Za uneti broj sekundi, ispisati vreme u   
+formatu:
+- Ako je u pitanju tekuca godina, ispisati   
+dan u mesecu, mesec slovima, casove, minute.
+Na primer "3. april 15:07".
+- Ako je u pitanju godina manja od tekuce
+ispisati dan u mesecu, mesec slovima i 
+godinu. Na primer "3. april 2014".
+- Ako je u pitanju datum iz buducnosti, 
+ispisati "buduce vreme".
+- Ispisati godinu i redni dan u godini. Na    
+primer "2015 93"
+
+6. Napisati program koji za direktorijumu koji je 
+dat kao prvi argument komandne linije
+
+- ispisuje one fajlove u tom direktorijumu ili 
+njegovim poddirektorijumima kojima nije pristupano 
+u prethodnom vremenu koje je zadato kao treci 
+argument komandne linije i to sa hh:mm:ss, gde 
+se hh ili hh:mm mogu izostaviti, a zatim ispisuje 
+njihovu ukupnu velicinu u bajtovima.
+
+Pomoc: String kojim je zadato vreme treba parsirati 
+pomocu strrchr, izracunati broj sekundi, a zatim to 
+oduzeti od tekuceg vremena i dobiti broj sekundi 
+trazenog trenutka od 1.1.1970. godine.
+
+- brise pravo pisanja i citanja za ostale 
+fajlovima iz tog direktorijuma ili njegovim 
+poddirektorijumima koji imaju ekstenziju ".php" 
+i za svaki fajl za koji je izvrsena izmena ispisuje 
+njegovo ime i izmene koje je napravio, na primer 
+-r, -w ili -rw
+
+- ispisuje imena vlasnika i nazive onih fajlova 
+koji imaju SUID bit postavljen, odnosno imena grupa 
+koje su vlasnici i nazive onih fajlova koji imaju 
+SGID bit postavljen.
+
+- vrsi rekurzivnu pretragu datog direktorijuma i 
+ispisuje sadrzaje svih simbolickih linkova, kao i 
+vreme kada im je poslednju put pristupano.
+
+- u fajl ".memory_usage.dd.mm.gg" iz datog 
+direktorijuma, gde je dd.mm.gg tekuci datum, 
+upisuje putanje i velicine za tri fajla koja se 
+nalaze u tom direktorijumu ili u njegovim 
+poddirektorijumima, a koji zauzimaju najvise 
+bajtova. Velicinu treba izraziti u citljivom 
+formatu. Ukoliko fajl nije prazan, treba prvo 
+izbrisati prethodni sadrzaj. Ukoliko fajl ne 
+postoji treba ga kreirati sa pravima pristupa "rw" 
+za vlasnika, pri cemu treba voditi racuna da ovi 
+bitovi ne budu zamaskirani.
+
+- pravi pseudo kopiju datog direktorijuma u 
+njegovom roditeljskom direktorijumu. Ime novog 
+direktorijum se dobija tako sto se na ime pocetnog 
+direktorijuma doda ".copy_lnk". Kopiranje se vrsi 
+tako sto se za svaki poddirektorijum kreira 
+poddirektorijum u novom direktorijumu koji mu 
+odgovara po poziciji, dok se za ostale fajlove 
+kreiraju jaki linkovi na originalne fajlove iz 
+pocetnog direktorijuma.
+  
+- brise sve regularne fajlove koji se nalaze u 
+njemu ili njegovim poddirektorijumima, a kojima 
+se naziv zavrsava karakterom "~".
+
+7. Napisati program koji ispisuje statistiku o tome 
+koje shell programe koriste korisnici koji pripadaju 
+grupi koja se ucitava sa standardnog ulaza. Ispis 
+treba da se sastoji od linija, za svaki shell po 
+jedna, u kojima treba da se ispise ime shell-a i 
+procenat korisnika koji ga koristi, sortirano po 
+procentu opadajuce. Za sortiranje koristiti 
+ugradjenu funkciju qsort. Omoguciti da se ucitavanje 
+grupe izvrsava u petlji, tako sto bi se za unetu 
+grupu ispisala statistika, a zatim bi se cekalo na 
+unos sledece grupe, sve dok se ne unese oznaka za 
+kraj fajla, kada program treba da se zavrsi.
+
